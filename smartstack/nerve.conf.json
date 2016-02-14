@@ -1,0 +1,24 @@
+{
+  "instance_id": "foo_service",
+  "services": {
+    "foo_service": {
+      "host": "$SERVICE_HOST",
+      "port": 8080,
+      "reporter_type": "zookeeper",
+      "zk_hosts": ["$ZK_HOSTS"],
+      "zk_path": "/nerve/services/foo_service",
+      "check_interval": 1,
+      "checks": [
+        {
+          "type": "http",
+          "host": "localhost",
+          "port": 8091,
+          "uri": "/health",
+          "timeout": 0.2,
+          "rise": 1,
+          "fall": 1
+        }
+      ]
+    }
+  }
+}
